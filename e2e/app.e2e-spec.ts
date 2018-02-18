@@ -21,4 +21,14 @@ describe('weather App', () => {
     });
   });
 
+  it('should not search weather in a city again', () => {
+    page.getSearchBox().sendKeys('London');
+    page.getSearchButton().click().then(() => {
+      page.getSearchBox().sendKeys('London');
+      page.getSearchButton().click().then(() => {
+        expect(page.getListItems().count()).toEqual(2);
+      });
+    });
+  });
+
 });
