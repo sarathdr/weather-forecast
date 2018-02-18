@@ -40,7 +40,7 @@ describe('WeatherSelectors', () => {
         .subscribe(value => result = value);
 
       expect(result).toEqual({
-        data: [],
+        forecasts: [],
         loaded: false,
         loading: false,
       });
@@ -48,7 +48,7 @@ describe('WeatherSelectors', () => {
       store.dispatch(new fromAction.SearchWeatherSuccess(weather));
 
       expect(result).toEqual({
-        data: [weather],
+        forecasts: [weather],
         loaded: true,
         loading: false,
       });

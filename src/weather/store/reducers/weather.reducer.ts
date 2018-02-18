@@ -8,13 +8,13 @@ import {
 import { Weather } from './../../models/weather.model';
 
 export interface WeatherForecastState {
-  data: Weather[];
+  forecasts: Weather[];
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState: WeatherForecastState = {
-  data: [],
+  forecasts: [],
   loaded: false,
   loading: false,
 };
@@ -33,12 +33,21 @@ export function reducer(
     }
 
     case SEARCH_WEATHER_SUCCESS: {
-      const data = [...state.data, action.payload];
+
+      if (doesExist(state, action.payload)) {
+        return {
+          ...state,
+          loading: false,
+          loaded: true
+        };
+      }
+
+      const forecasts = [...state.forecasts, action.payload];
       return {
         ...state,
         loading: false,
         loaded: true,
-        data
+        forecasts
       };
     }
 
@@ -55,9 +64,15 @@ export function reducer(
   return state;
 }
 
+export function doesExist(state: WeatherForecastState, weather: Weather): boolean {
+  return state.forecasts.some(
+    forecast => forecast.id === weather.id
+  );
+}
+
 export const getWeatherForecast = (state: WeatherForecastState) => {
-  console.log('reducer >> action=broadcast_data data=', state.data);
-  return state.data;
+  console.log('reducer >> action=broadcast_data data=', state.forecasts);
+  return state.forecasts;
 };
 
 export const getWeatherForecastLoading = (state: WeatherForecastState) => state.loading;

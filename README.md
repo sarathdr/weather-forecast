@@ -1,6 +1,6 @@
 # Weather Forecast
 
-Sample app Angular5/ngRx to search 24 hours weather report in a city.
+Sample Angular5/ngRx app to report 24 hours weather status in a city.
 
 ## Development server
 

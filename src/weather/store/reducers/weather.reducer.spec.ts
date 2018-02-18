@@ -23,7 +23,7 @@ describe('Weather reducer', () => {
 
       expect(state.loading).toEqual(true);
       expect(state.loaded).toEqual(false);
-      expect(state.data).toEqual([]);
+      expect(state.forecasts).toEqual([]);
 
     });
   });
@@ -47,7 +47,7 @@ describe('Weather reducer', () => {
 
       expect(state.loading).toEqual(false);
       expect(state.loaded).toEqual(true);
-      expect(state.data).toEqual([payload]);
+      expect(state.forecasts).toEqual([payload]);
 
     });
   });
