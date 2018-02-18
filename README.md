@@ -6,7 +6,7 @@ Sample Angular5/ngRx app to report 24 hours weather status in a city.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng serve --prod` to hit the productio api URL.
+Run `ng serve --prod` to hit the production api URL.
 
 ## Build
 
