@@ -1,0 +1,18 @@
+<app-search-form  (search)="onSearch($event)"></app-search-form>
+<div class="list">
+  <div class="item  title-row">
+      <span>City</span>
+      <span>3 am</span>
+      <span>6 am</span>
+      <span>9 am</span>
+      <span>12 pm</span>
+      <span>3 pm</span>
+      <span>6 pm</span>
+      <span>9 pm</span>
+      <span>12 am</span>
+  </div>
+  <app-search-result-item
+    *ngFor="let weather of (weatherList$ | async)"
+    [weather]="weather">
+  </app-search-result-item>
+</div>

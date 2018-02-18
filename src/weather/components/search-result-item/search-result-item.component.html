@@ -1,0 +1,6 @@
+<div class="item">
+  <span class="city-name">{{ weather.cityName }}</span>
+  <span *ngFor="let forecast of (weather.forecasts)">
+    {{ forecast.temp }} k
+  </span>
+</div>
